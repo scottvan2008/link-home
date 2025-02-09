@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { AuthProvide } from "@/context/auth";
 import AuthButtons from "@/components/auth-buttons";
+import { HomeIcon } from "lucide-react";
+import { Poppins } from "next/font/google";
 
-const geistSans = Geist({
-    variable: "--font-geist-sans",
+const poppins = Poppins({
     subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
+    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -27,14 +23,26 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-            >
+            <body className={`${poppins.className} antialiased`}>
                 <AuthProvide>
                     <nav className="bg-sky-950 text-white p-5 h-24 flex items-center justify-between">
-                        <Link href="/">Link Home</Link>
+                        <Link
+                            href="/"
+                            className="text-3xl tracking-widest flex gap-2 items-center uppercase"
+                        >
+                            <HomeIcon />
+                            <span>Link Home</span>
+                        </Link>
 
-                        <ul>
+                        <ul className="flex gap-6 items-center">
+                            <li>
+                                <Link
+                                    href="/property-search"
+                                    className="uppercase tracking-widest hover:underline"
+                                >
+                                    Property search
+                                </Link>
+                            </li>
                             <li>
                                 <AuthButtons />
                             </li>
