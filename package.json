@@ -16,6 +16,7 @@
     "clsx": "^2.1.1",
     "firebase": "^11.3.0",
     "firebase-admin": "^13.1.0",
+    "jose": "^5.9.6",
     "lucide-react": "^0.475.0",
     "next": "15.1.6",
     "react": "^19.0.0",
